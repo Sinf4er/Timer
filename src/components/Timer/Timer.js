@@ -42,36 +42,23 @@ class Timer extends React.Component {
     };
   };
 
-  render() {
+  renderTile = () => {
+    const unit = ["days", "hours", "minutes", "seconds"];
     const { currentDate } = this.state;
     const { selectedDay } = this.context;
 
     const time = this.getReadableTimeDiffObject(currentDate, selectedDay);
 
-    return (
-      <>
-        <div className={styles.tile}>
-          <div className={styles.number}>{time.days}</div>
-          <div className={styles.label}>Days</div>
-        </div>
-
-        <div className={styles.tile}>
-          <div className={styles.number}>{time.hours}</div>
-          <div className={styles.label}>Hours</div>
-        </div>
-
-        <div className={styles.tile}>
-          <div className={styles.number}>{time.minutes}</div>
-          <div className={styles.label}>Minutes</div>
-        </div>
-
-        <div className={styles.tile}>
-          <div className={styles.number}>{time.seconds}</div>
-          <div className={styles.label}>Seconds</div>
-        </div>
-      </>
-    );
+    const tiles = unit.map(unit => (
+      <div className={styles.tile} key={unit}>
+        <div className={styles.number}>{time[unit]}</div>
+        <div className={styles.label}>{unit}</div>
+      </div>
+    ));
+    return tiles;
+  };
+  render() {
+    return <>{this.renderTile()}</>;
   }
 }
-
 export default Timer;

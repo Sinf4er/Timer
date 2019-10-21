@@ -12,6 +12,7 @@ class Datepicker extends React.Component {
           {({ selectedDay, setDate }) => (
             <>
               <DayPicker
+              firstDayOfWeek={1}
                 numberOfMonths={4}
                 fixedWeeks
                 todayButton="Go to Today"
