@@ -3,14 +3,28 @@ import React, { Component, createContext } from "react";
 export const TimeContext = createContext();
 
 class TimeContextProvider extends Component {
-  defaultDate = `${new Date().getFullYear()}-12-31T00:00:00`;
-  storedDate = localStorage.getItem("selectedDay") || this.defaultDate;
+  defaultDateTime = `${new Date().getFullYear()}-12-31T00:00:00`;
+  storedDateTime =
+    localStorage.getItem("selectedDateTime") || this.defaultDateTime;
 
   state = {
-    selectedDay: new Date(this.storedDate),
+    selectedDateTime: new Date(this.storedDateTime),
     setDate: day => {
-      this.setState({ selectedDay: day });
-      localStorage.setItem("selectedDay", day);
+      const newDateTime = new Date(day);
+      newDateTime.setHours(this.state.selectedDateTime.getHours());
+      newDateTime.setMinutes(this.state.selectedDateTime.getMinutes());
+
+      this.setState({ selectedDateTime: newDateTime });
+      localStorage.setItem("selectedDateTime", newDateTime.toString());
+    },
+    setTime: time => {
+      const newDateTime = new Date(time);
+      newDateTime.setFullYear(this.state.selectedDateTime.getFullYear());
+      newDateTime.setMonth(this.state.selectedDateTime.getMonth());
+      newDateTime.setDate(this.state.selectedDateTime.getDate());
+
+      this.setState({ selectedDateTime: newDateTime });
+      localStorage.setItem("selectedDateTime", newDateTime.toString());
     }
   };
 

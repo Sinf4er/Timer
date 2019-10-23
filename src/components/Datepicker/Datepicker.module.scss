@@ -1,5 +1,13 @@
 .dateDisplay {
   font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
- 
+
+.timePicker {
+  padding-left: 10px;
+  padding-bottom: 8px;
+}

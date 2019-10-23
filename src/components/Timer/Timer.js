@@ -45,9 +45,9 @@ class Timer extends React.Component {
   renderTile = () => {
     const unit = ["days", "hours", "minutes", "seconds"];
     const { currentDate } = this.state;
-    const { selectedDay } = this.context;
+    const { selectedDateTime } = this.context;
 
-    const time = this.getReadableTimeDiffObject(currentDate, selectedDay);
+    const time = this.getReadableTimeDiffObject(currentDate, selectedDateTime);
 
     const tiles = unit.map(unit => (
       <div className={styles.tile} key={unit}>
