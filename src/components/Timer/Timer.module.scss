@@ -13,3 +13,13 @@
   font-size: 4rem;
   margin: 1rem;
 }
+
+@media only screen and (max-width: 450px) {
+  .tile {
+    padding: 1rem;
+  }
+
+  .number {
+    font-size: 2rem;
+  }
+}

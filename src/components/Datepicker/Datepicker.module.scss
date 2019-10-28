@@ -17,6 +17,12 @@
 }
 
 .timePicker {
-  padding-left: 10px;
   padding-bottom: 8px;
+}
+
+@media only screen and (max-width: 450px) {
+  .timeDisplay {
+    flex-wrap: wrap;
+    padding-left: 1rem;
+  }
 }
