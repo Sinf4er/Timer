@@ -39,17 +39,34 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
 }
 
 .settings {
   padding: 3rem;
-  background-color: azure;
+  background-color: #fff;
   border-radius: 50px;
 }
 
 @media only screen and (max-width: 1020px) { 
   .header {
     flex-wrap: wrap;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+
+
+  .navigation {
+    background-color: #aaa;
+    
+  }
+  .link {
+    color: #000;
+  }
+  .header {
+    background-color: #fff;
+  }
+  .settings {
+    background-color: #aaa;
   }
 }

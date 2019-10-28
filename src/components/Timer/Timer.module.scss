@@ -23,3 +23,11 @@
     font-size: 2rem;
   }
 }
+
+@media (prefers-color-scheme: light) {
+  .tile {
+    background-color: #aaa;
+    box-shadow: 10px 10px 30px -22px rgba(0, 0, 0, 0.75);
+    color: #000;
+  }
+}
