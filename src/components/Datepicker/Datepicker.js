@@ -27,13 +27,16 @@ class Datepicker extends React.Component {
 
               <div className={styles.dateDisplay}>
                 {selectedDateTime.toLocaleDateString()}
-                <TimePicker
-                  className={styles.timePicker}
-                  defaultValue={moment()}
-                  showMinute={true}
-                  showSecond={false}
-                  onChange={setTime}
-                />
+                <div className={styles.timeDisplay}>
+                  <span>Time:</span>
+                  <TimePicker
+                    defaultValue={moment(localStorage.getItem("selectedDateTime"))}
+                    className={styles.timePicker}
+                    showMinute={true}
+                    showSecond={false}
+                    onChange={setTime}
+                  />
+                </div>
               </div>
             </>
           )}
